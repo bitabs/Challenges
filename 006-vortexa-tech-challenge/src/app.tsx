@@ -1,16 +1,16 @@
-import React from "react";
 import { Box, Card, Grid } from "@mui/material";
 import { Feature, MultiPolygon } from "geojson";
+import { RampData, RampProperties } from "./types";
+import React, { useEffect, useState } from "react";
 
 import { BoatMaterialsPie } from "./materials-pie-chart";
 import { Header } from "./header";
 import { Map } from "./map";
 import { RampTable } from "./table";
-import { RampData, RampProperties } from "./types";
 
 export const App = () => {
-  const [data, setData] = React.useState<RampData | undefined>(undefined);
-  const [visibleFeatures, setVisibleFeatures] = React.useState<
+  const [data, setData] = useState<RampData | undefined>(undefined);
+  const [visibleFeatures, setVisibleFeatures] = useState<
     Feature<MultiPolygon, RampProperties>[] | []
   >([]);
 
@@ -21,7 +21,7 @@ export const App = () => {
 
   getData();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (data?.features && !visibleFeatures.length) {
       setVisibleFeatures(data?.features);
     }
