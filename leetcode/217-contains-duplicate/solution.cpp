@@ -28,17 +28,21 @@ public:
 
 int main()
 {
-    // unique use case
-    vector<int> test1{10, 20, 30};
-    bool test1Dup = Solution::containsDuplicate(test1);
-    printf("Output 1: %s\n", test1Dup ? "true" : "false");
+    /** Test 1 */
+    vector<int> test1{};
+    printf("Output 1: %s\n", Solution::containsDuplicate(test1) ? "true" : "false");
 
     printf("===============\n");
 
-    // duplicate case
-    vector<int> test2{10, 20, 30, 10};
-    bool test2Dup = Solution::containsDuplicate(test2);
-    printf("Output 2: %s", test2Dup ? "true" : "false");
+    /** Test 2 */
+    vector<int> test2{1, 2, 3};
+    printf("Output 2: %s\n", Solution::containsDuplicate(test2) ? "true" : "false");
+
+    printf("===============\n");
+
+    /** Test 3 */
+    vector<int> test3{1, 2, 1};
+    printf("Output 3: %s", Solution::containsDuplicate(test3) ? "true" : "false");
 
     return 0;
 }
